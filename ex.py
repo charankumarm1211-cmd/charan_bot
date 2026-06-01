@@ -1,5 +1,5 @@
 import streamlit as st
-from groq import Groq
+from twilio.rest import Client
 
 st.markdown("""
 <style>
@@ -26,7 +26,7 @@ if prompt:
         st.write(prompt)
 
 
-    client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+    client = twilio(api_key=st.secrets["TWILIO_API_KEY"])
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
